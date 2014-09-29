@@ -5,7 +5,7 @@ $map	= new PhocaMapsMap();
 
 echo $map->getIconPrintScreen();
 
-$map->loadAPI();
+$map->loadAPI('jsapi', (int)$this->t['load_api_ssl']);
 
 echo $map->startJScData();
 echo $map->addAjaxAPI('maps', '3.x', $this->t['params']);

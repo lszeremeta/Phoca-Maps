@@ -14,6 +14,7 @@ class PhocaMapsViewRoute extends JViewLegacy
 	
 	function display($tpl = null) {
 		$app		= JFactory::getApplication();
+                $this->t['p']	= $app->getParams();
 		
 		JHTML::stylesheet('media/com_phocamaps/css/phocamaps.css' );
 		if (JFile::exists(JPATH_SITE.'/media/com_phocamaps/css/custom.css')) {
@@ -24,6 +25,7 @@ class PhocaMapsViewRoute extends JViewLegacy
 		$this->t['from'] 	= $app->input->get('from', '', 'string');
 		$this->t['to'] 		= $app->input->get('to', '', 'string');
 		$this->t['lang'] 	= $app->input->get('lang', '', 'string');
+                $this->t['load_api_ssl']= (int)$this->t['p']->get( 'load_api_ssl', 0 );
 	
 		// Map params - language not used
 		if ($this->t['lang'] == '') {
@@ -36,4 +38,3 @@ class PhocaMapsViewRoute extends JViewLegacy
 		parent::display($tpl);
 	}
 }
-?>
